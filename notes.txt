@@ -1,0 +1,15 @@
+// notes: 
+// in verilog, you can set Q = Q in always or initial block
+// because it means to set the old value of Q to the current Q
+
+// note that initial block is not encouraged to use
+// as it is usually not systhesizable in verilog
+
+// $bits()
+
+// it is a good practice to write 4'd10 instead of just plain 10
+// because plain 10 will be default to 32-bit
+
+// sometimes when solving problem, can think from the perspective
+// like using shifting to solve the problem
+// using shifting sometimes can solve problem that require using looping
