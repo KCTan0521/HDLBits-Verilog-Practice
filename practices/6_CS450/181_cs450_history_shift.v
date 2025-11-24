@@ -11,23 +11,12 @@ module top_module(
     input [31:0] train_history
 );
 
-    reg [2:0] history_counter;
-
-    always @(*) begin
-
-    end
-    
-    // haven't completed
     always @(posedge clk or posedge areset) begin
-        if (areset) begin
-            history_counter <= 3'b0;
-        end
+        if (areset) predict_history <= 32'b0;
         else begin
-        
-        
+            if (train_mispredicted) predict_history <= {train_history[30:0], train_taken};
+            else if (predict_valid) predict_history <= {predict_history[30:0], predict_taken};
         end
-
-
-    end
+   end
 
 endmodule
